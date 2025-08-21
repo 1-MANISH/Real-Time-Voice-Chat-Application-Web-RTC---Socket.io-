@@ -1,0 +1,28 @@
+
+.button{
+        margin: 30px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--primary-text-color);
+        background-color: var(--primary-button-bg-color);
+        border: none;
+        outline: none;
+        border-radius: 50px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.3s ease, color 0.3s ease;
+}
+.button:hover{
+        background-color: #0077ffa1;
+}
+
+.buttonText{
+  letter-spacing: 1px;
+
+}

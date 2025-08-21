@@ -1,0 +1,60 @@
+
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500&family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Bitcount+Grid+Double:wght@100..900&family=Caveat&family=Exo+2&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kenia&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Manrope:wght@200..800&family=Noto+Sans:wght@200;400&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,500;1,800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@100&family=Rubik+Vinyl&family=Russo+One&family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=VT323&family=Vina+Sans&family=Work+Sans:wght@300&display=swap');
+
+
+/* global variable */
+:root {
+        --primary-background-color:#121212;
+        --secondary-background-color:#1D1D1D;
+        --primary-text-color:#FFFFFF;
+        --secondary-text-color:#C4C5C5;
+        --primary-button-bg-color:#0077FF;
+        --primary-indigo-color:#5453E0;
+        --primary-green-color:#20BD5F;
+        --primary-pink-color:#E91E63;
+        --input-background-color:#262626;
+        --hr-line-color:#323232;
+        --danger-color:#F44336;
+
+
+}
+
+/* global css */
+
+html{
+        box-sizing: border-box;
+        font-size: 16px;
+}
+
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,li{
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+        --webkit-font-smoothing: antialiased;
+}
+
+ol,ul{
+        list-style: none;
+}
+
+img{
+        max-width: 100%;
+        height: auto;
+}
+
+body{
+        font-family: 'Nunito', sans-serif;
+        background-color: var(--primary-background-color);
+        color:var(--primary-text-color)
+}
+
+
+.container{
+        width:1200px;
+        max-width: 90%;
+        margin: 0 auto;
+        /* border: 1px dashed var(--secondary-text-color); */
+}
+
+

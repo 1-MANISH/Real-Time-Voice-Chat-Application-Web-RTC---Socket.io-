@@ -1,0 +1,25 @@
+
+.cardWrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 8rem;
+}
+
+.paragraphText{
+        font-size: 22px;
+        color: var(--secondary-text-color);
+        margin-bottom: 20px;
+        font-weight: 300;
+        line-height: 1.5;
+        word-spacing: 2px;
+}
+.signinWrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+}
+.inviteText{
+        color: #0077ffaf;
+}

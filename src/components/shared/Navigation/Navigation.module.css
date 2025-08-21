@@ -1,0 +1,15 @@
+.navbar{
+        padding: 10px 0;
+}
+
+.navbarBrandStyle{
+        color:'#fff';
+        text-decoration: 'none';
+        font-weight: 'bold';
+        display: 'flex';
+        align-items: 'center';
+        font-size: '22px';
+}
+.brandImageStyle{
+        width: '100px';
+}
