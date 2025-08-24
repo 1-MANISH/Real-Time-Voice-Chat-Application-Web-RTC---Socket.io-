@@ -1,13 +1,13 @@
-.stepOtpContainer
-{
-        display: flex;
-        flex-direction: column;
+.emailContainer{
+         display: flex;
         justify-content: center;
-        align-items: center;
-        /* border: 1px dashed #ccc; */
-        margin-top: 8rem;
-        
 }
+
+
+.inputWrapper{
+        margin: 50px 0;
+}
+
 .infoTextWrapper{
         font-size: 14px;
         color:var(--secondary-text-color);
@@ -17,8 +17,4 @@
         margin:0 auto;
         line-height: 1.5;
         letter-spacing: 0.4px;
-}
-
-.otpInputWrapper{
-        margin: 40px 0;
 }

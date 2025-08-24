@@ -12,11 +12,12 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 16px;
+        gap: 10px;
 
 }
 .headingWrapperImage{
-        width: 120px;
-        aspect-ratio: 1/1;
+        width: 24px;
+        /* aspect-ratio: 1/1; */
         
 }
 .headingWrapperText{

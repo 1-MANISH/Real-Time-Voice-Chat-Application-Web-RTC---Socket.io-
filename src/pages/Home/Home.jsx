@@ -8,17 +8,9 @@ function Home() {
 
         const navigate = useNavigate();
 
-        const signinLinkStyle = {
-                textDecoration: 'none',
-                color: '#0077FF',
-                fontWeight: 'bold',
-                fontSize: '16px',
-        }
-
-
-        const startRegistration = useCallback((e)=>{
+        const startAuthentication = useCallback((e)=>{
                 e.preventDefault()
-                navigate('/register')
+                navigate('/authenticate')
         },[ navigate ])
 
 
@@ -26,7 +18,7 @@ function Home() {
                 <div className={`${styles.cardWrapper} container`}>
 
                         <Card 
-                                imageSrc={'images/voicer.png'}
+                                imageSrc={'images/hy.png'}
                                 headingText={'Welcome to voicers !'}
                         >
                                  <p className={`${styles.paragraphText}`}>
@@ -35,17 +27,14 @@ function Home() {
                                 
                                  <div>
                                         <Button
-                                                text="Get your username"
+                                                text="Let's Go"
                                                 iconSrc="images/arrow_forward.png"
-                                                onClick={startRegistration}
+                                                onClick={startAuthentication}
                                         />
                                 </div>
 
                                 <div className={`${styles.signinWrapper}`}>
                                         <span className={`${styles.inviteText}`}>Have an invite text?</span>
-                                        <Link to="/login" style={signinLinkStyle}>
-                                                <span>Sign in</span>
-                                        </Link>
                                 </div>
 
                         </Card>

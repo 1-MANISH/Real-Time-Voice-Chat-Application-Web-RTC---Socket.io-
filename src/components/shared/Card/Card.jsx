@@ -5,11 +5,12 @@ function Card({
         imageSrc,
         headingText,
         children,
+        width = '500px',
 }) {
         return (
-                    <div className={`${styles.card}`}>
+                    <div style={{width}} className={`${styles.card}`}>
                                 <div className={`${styles.headingWrapper}`}>
-                                        <img src={imageSrc} alt='' className={`${styles.headingWrapperImage}`} />
+                                        <img src={imageSrc} alt='image icon' className={`${styles.headingWrapperImage}`} />
                                         <h1 className={`${styles.headingWrapperText}`}>{headingText} </h1>
                                 </div>
                                 

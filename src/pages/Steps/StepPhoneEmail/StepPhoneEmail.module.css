@@ -1,0 +1,45 @@
+.stepPhoneEmailContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* border: 1px dashed #ccc; */
+        margin-top: 8rem;
+}
+
+.toggleButtonContainer{
+        width: 500px;
+        max-width: 90%;
+        display: flex;
+        justify-content: flex-end;
+        gap: 14px;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+}
+
+.toggleButton{
+        width: 56px;
+        height: 60px;
+        padding: 0.5rem 0.5rem;
+        background-color: var(--secondary-background-color);
+        color: var(--primary-text-color);
+        border: none;
+        outline: none;
+        border-radius: 12px;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+
+}
+
+.active{
+        background-color: var(  --primary-button-bg-color);
+        color: var(--primary-text-color);
+}
+
+.toggleButtonImage{
+        width: 28px;
+        height: 28px;
+        margin:0 auto
+}
