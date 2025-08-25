@@ -18,12 +18,13 @@ function Activate() {
         
         const nextStepHandler = useCallback(()=>{
                         setStep((prevStep) => {
-                                if (prevStep < Object.keys(step).length) {
+                                if (prevStep < Object.keys(steps).length) {
                                         return prevStep + 1
                                 }
                                 return prevStep
                         })
         },[ step ])
+        
         return (
                  <StepComponent
                         onClickNext={nextStepHandler}

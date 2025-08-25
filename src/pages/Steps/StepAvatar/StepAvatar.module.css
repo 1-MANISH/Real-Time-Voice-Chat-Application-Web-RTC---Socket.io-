@@ -1,0 +1,53 @@
+
+.stepAvatarContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* border: 1px dashed #ccc; */
+        margin-top: 8rem;
+}
+
+
+
+
+.infoTextWrapper{
+        font-size: 14px;
+        color:var(--secondary-text-color);
+        opacity: 0.4;
+        width: 200px;
+        text-align: center;
+        margin:0 auto;
+        line-height: 1.5;
+        letter-spacing: 0.4px;
+}
+
+.inputWrapper{
+        margin: 30px auto;
+        width: 110px;
+        height:110px;
+        border: 4px solid var(--primary-button-bg-color);
+        border-radius: 50%;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+}
+
+.avatarImage{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+
+}
+
+.avatarInput{
+        display: none;
+}
+
+.avatarLabel{
+        color: var(--primary-button-bg-color);
+        cursor: pointer;
+}

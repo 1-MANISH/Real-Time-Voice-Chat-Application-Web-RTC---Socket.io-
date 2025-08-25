@@ -1,0 +1,24 @@
+.stepNameContainer{
+         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* border: 1px dashed #ccc; */
+        margin-top: 8rem;
+}
+
+.inputWrapper{
+        margin: 50px 0;
+}
+
+
+.infoTextWrapper{
+        font-size: 14px;
+        color:var(--secondary-text-color);
+        opacity: 0.4;
+        width: 200px;
+        text-align: center;
+        margin:0 auto;
+        line-height: 1.5;
+        letter-spacing: 0.4px;
+}
