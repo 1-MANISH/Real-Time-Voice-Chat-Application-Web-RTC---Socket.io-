@@ -1,0 +1,60 @@
+.roomCard{
+        width: 290px;
+        max-width: 290px;
+        height: 200px;
+        max-height: 220px;
+        background-color: var(--secondary-background-color);
+        padding: 20px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    
+        
+}
+.roomCardHeading{
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.7px;
+        line-height: 28px;
+
+}
+.roomSpeakers{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+
+}
+.roomSpeakerAvatars{
+
+}
+.roomSpeakerAvatarsImage{
+
+}
+.roomSpeakerNames{
+
+}
+.roomSpeakerNamesText{
+        
+}
+
+.roomCardFooter{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        background-color: red;
+     
+}
+.roomCardFooterContent{
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: -90px;
+}
+.roomCardFooterContentText{
+
+}
+.roomCardFooterContentImage{
+
+}

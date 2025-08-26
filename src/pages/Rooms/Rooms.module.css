@@ -1,0 +1,85 @@
+.roomsHeader{
+        /* background:var(--danger-color); */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 50px 0;
+        
+}
+.heading{
+        font-size: 24px;
+        font-weight: 700;
+        position: relative;
+
+}
+.heading::after{
+        content: '';
+        width: 56%;
+        height: 4px;
+        background-color: var(--primary-button-bg-color);
+        position: absolute;
+        bottom: -14px;
+        left: 0;
+
+}
+.roomsHeaderWrapperLeft{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+}
+.searchBoxWrapper{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background-color: var(--input-background-color);
+        padding: 10px 20px;
+        border-radius: 50px;
+        width: 320px;
+        /* max-width: 90%; */
+        box-sizing: border-box;
+}
+.inputBox{
+        background:transparent;
+        color: var(--secondary-text-color);
+        outline: none;
+        border: none;
+        font-size: 18px;
+        border-radius: 10px;
+        width: 90%;
+}
+.roomsHeaderWrapperRight{
+        display: flex;
+        align-items: center;
+        max-width: 200px;
+}
+
+.startRoomButton{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: none;
+        outline: none;
+        background-color: var(--primary-green-color);
+        color: var(--primary-text-color);
+        padding: 10px 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        -ms-border-radius: 50px;
+        -o-border-radius: 50px;
+}
+.startRoomButton:hover{
+        opacity: 0.8;
+}
+
+
+.roomsList{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+}

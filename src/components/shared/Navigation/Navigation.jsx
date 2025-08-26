@@ -7,7 +7,7 @@ import { setAuthLogout } from '../../../redux/slices/authSlice'
 
 function Navigation() {
 
-        const {isAuth} = useSelector((store)=>store.auth)
+        const {isAuth,user} = useSelector((store)=>store.auth)
 
         const dispatch = useDispatch()
 
@@ -22,6 +22,7 @@ function Navigation() {
 
         const brandImageStyle = {
                 width: '100px',
+                marginLeft:"-13px"
         }
 
         const logoutHandler = useCallback(async()=>{
@@ -36,24 +37,44 @@ function Navigation() {
 
 
         return (
+             <>
                 <nav className={`${styles.navbar} container `}>
                         <Link style={brandStyle}  to="/">
                                 <img style={brandImageStyle} src="/images/voicer.png" alt="logo image" />
                                 <span>Voicer</span>
                         </Link>
-
-                       <div className={styles.rightBar}>
                         {
-                                isAuth &&(
-                                         <button onClick={logoutHandler}>
-                                                Logout
-                                        </button>
-                                )
+                                  isAuth && (
+                                <div className={styles.rightBar}>
+                                                <h3 className={styles.username}>{user?.name}</h3>
+                                        <NavLink to={"/profile"} >
+                                                        <img 
+                                                                src={user?.avatar}
+                                                                alt="profile image"
+                                                                className={styles.profileImage}
+                                                        />
+                                        </NavLink>
+                
+                                                <button className={styles.logoutButton} onClick={logoutHandler}>
+                                                                <img    
+                                                                        src='images/arrow_forward.png'
+                                                                        alt="logout icon"
+                                                                        className={styles.logoutIcon}
+                                                                />
+                                                </button>
+                                
+                                </div>
+                            )
                         }
-                               
-                       </div>
                 </nav>
+                {
+                        isAuth && (
+                                <hr className={styles.hr} />
+                        )
+                }
+             </>
         )
 }
 
 export default Navigation
+

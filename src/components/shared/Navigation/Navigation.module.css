@@ -1,5 +1,5 @@
 .navbar{
-        padding: 10px 0;
+        padding: 0px 0;
         display: flex;
         justify-content: space-between;
 }
@@ -19,4 +19,32 @@
 .rightBar{
         display: flex;
         align-items: center;
+        gap: 20px;
+}
+.username{
+        font-weight: bolder;
+}
+.profileImage{
+        width: 40px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        border: 3px solid var(--primary-button-bg-color);
+}
+
+.logoutButton{
+        border: none;
+        outline: none;
+        background:var(--primary-button-bg-color);
+        width: 30px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+}
+
+.hr{
+        border-bottom: 1px solid var(--hr-line-color);
+        opacity: 0.2;
 }

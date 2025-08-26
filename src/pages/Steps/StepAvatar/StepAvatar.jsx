@@ -33,7 +33,7 @@ function StepAvatar({
                 }
         },[avatarImage])
 
-         const submitHandler = useCallback(async ()=>{
+        const submitHandler = useCallback(async ()=>{
 
                 setLoading(true)
                 try {
@@ -57,6 +57,7 @@ function StepAvatar({
                         setLoading(false)
                 }
         },[avatar,name,avatarImage])
+
 
         if(loading){
                 return    < Loader  message="Activation in progress ..."/>
