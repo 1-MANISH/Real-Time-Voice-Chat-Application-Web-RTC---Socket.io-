@@ -23,10 +23,14 @@ export const authSlice = createSlice({
                                 phone,
                                 hash
                         }
+                },
+                setAuthLogout:(state,action)=>{
+                        state.isAuth = false
+                        state.user = null
                 }
         }
 })
 
-export const {setAuth,setOtp} = authSlice.actions
+export const {setAuth,setOtp,setAuthLogout} = authSlice.actions
 
 export default authSlice

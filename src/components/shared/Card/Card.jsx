@@ -10,7 +10,7 @@ function Card({
         return (
                     <div style={{width}} className={`${styles.card}`}>
                                 <div className={`${styles.headingWrapper}`}>
-                                        <img src={imageSrc} alt='image icon' className={`${styles.headingWrapperImage}`} />
+                                       {imageSrc && <img src={imageSrc} alt='image icon' className={`${styles.headingWrapperImage}`} />}
                                         <h1 className={`${styles.headingWrapperText}`}>{headingText} </h1>
                                 </div>
                                 

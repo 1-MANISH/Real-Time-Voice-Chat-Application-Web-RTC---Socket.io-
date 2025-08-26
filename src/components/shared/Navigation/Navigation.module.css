@@ -1,5 +1,7 @@
 .navbar{
         padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
 }
 
 .navbarBrandStyle{
@@ -12,4 +14,9 @@
 }
 .brandImageStyle{
         width: '100px';
+}
+
+.rightBar{
+        display: flex;
+        align-items: center;
 }

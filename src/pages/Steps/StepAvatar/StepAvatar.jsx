@@ -7,6 +7,7 @@ import { setAuth } from '../../../redux/slices/authSlice'
 
 const Card = lazy(()=>import( '../../../components/shared/Card/Card'))
 const Button = lazy(()=>import( '../../../components/shared/Button/Button'))
+const Loader  = lazy(()=>import( '../../../components/shared/Loader/Loader'))
 
 function StepAvatar({
                 onClickNext = () => {},
@@ -18,6 +19,8 @@ function StepAvatar({
         const[avatarImage,setAvatarImage] = useState('images/avatarDemo.png')
 
         const {name,avatar}  = useSelector((store)=>store.activation)
+
+        const [loading,setLoading] = useState(false)
 
 
         const captureImageHandler = useCallback(async(e)=>{
@@ -31,8 +34,13 @@ function StepAvatar({
         },[avatarImage])
 
          const submitHandler = useCallback(async ()=>{
+
+                setLoading(true)
                 try {
-                              
+                        
+                        if(!name || !avatar){
+                                return
+                        }
                         const {data}  = await activateUser({
                                 name,
                                 avatar
@@ -45,46 +53,51 @@ function StepAvatar({
                 } catch (error) {
                         console.log(error.response.data.message)
                 }
-        },[avatar,name])
+                finally{
+                        setLoading(false)
+                }
+        },[avatar,name,avatarImage])
 
-
+        if(loading){
+                return    < Loader  message="Activation in progress ..."/>
+        }
 
         return (
                   <div  className={`${styles.stepAvatarContainer} container`}>
                         <Card 
-                                headingText={`Okay , ${name}`}
-                                imageSrc="/images/emojiavatar.png"
-                         >
+                                                headingText={`Okay , ${name}`}
+                                                imageSrc="/images/emojiavatar.png"
+                                        >
 
-                                 <div className={`${styles.infoTextWrapper}`}>
-                                        <span>
-                                                How this photo ?
-                                        </span>
-                                </div>
-                         
-                                <div className={styles.inputWrapper}>
-                                        <img src={avatarImage} alt="avatar" className={styles.avatarImage} />
-                         
-                                </div>
+                                                <div className={`${styles.infoTextWrapper}`}>
+                                                        <span>
+                                                                How this photo ?
+                                                        </span>
+                                                </div>
+                                        
+                                                <div className={styles.inputWrapper}>
+                                                        <img src={avatarImage} alt="avatar" className={styles.avatarImage} />
+                                        
+                                                </div>
 
-                                <div className={styles.input}>
-                                        <input 
-                                                id='avatarFile'  
-                                                type='file' 
-                                                className={styles.avatarInput} 
-                                                onChange={captureImageHandler}
-                                        />
-                                        <label htmlFor='avatarFile' className={styles.avatarLabel}>Choose a different photo</label>
-                                </div>
-                               
-                                  <div>
-                                         <Button
-                                                text="Next"
-                                                 iconSrc="images/arrow_forward.png"
-                                                width='150px'
-                                                onClick={submitHandler}
-                                        />
-                                </div>
+                                                <div className={styles.input}>
+                                                        <input 
+                                                                id='avatarFile'  
+                                                                type='file' 
+                                                                className={styles.avatarInput} 
+                                                                onChange={captureImageHandler}
+                                                        />
+                                                        <label htmlFor='avatarFile' className={styles.avatarLabel}>Choose a different photo</label>
+                                                </div>
+                                        
+                                                <div>
+                                                        <Button
+                                                                text="Next"
+                                                                iconSrc="images/arrow_forward.png"
+                                                                width='150px'
+                                                                onClick={submitHandler}
+                                                        />
+                                                </div>
                         </Card>
                  </div>
         )

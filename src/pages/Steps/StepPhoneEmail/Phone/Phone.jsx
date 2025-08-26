@@ -18,6 +18,9 @@ function Phone({
         const submitHandler = useCallback(async ()=>{
 
                 try {
+                        if(!phoneNumber)
+                                return
+                        
                         // server request
                         const {data}  = await sendOtp({
                                 phone:phoneNumber

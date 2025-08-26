@@ -21,6 +21,8 @@ function StepOtp({
 
                 try {
                         // server request
+                        if(!otp || !otpData.phone)
+                                return
 
                         const {data}  = await verifyOtp({
                                 otp,
