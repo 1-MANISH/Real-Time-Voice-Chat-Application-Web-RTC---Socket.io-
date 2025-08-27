@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import styles from './RoomCard.module.css'
 
 
+
+
 function RoomCard({
-        room
+        room,
+        rIndex
 }) {
+
+        const colors = useMemo(()=>{
+                return [
+                        ["#0077FF","#20BD5F"],
+                        ["#5453E0","#E91E63"],
+                        ["#FF6B00","#E91E63"],
+                        ["#20BD5F","#5453E0"],
+                ]
+        },[])
+
         return (
                 <div className={styles.roomCard}>
                         <h3 className={styles.roomCardHeading}>{room?.topic}</h3>
@@ -12,12 +25,15 @@ function RoomCard({
                         <div className={styles.roomSpeakers}>
                                 <div className={styles.roomSpeakerAvatars}>
                                         {
-                                                room?.speakers?.map((speaker) => (
+                                                room?.speakers?.map((speaker,index) => (
                                                         <img 
                                                                 key={speaker?.avatar+"----"+speaker?.id} 
                                                                 src={speaker?.avatar} 
                                                                 alt="speaker avatar"
                                                                 className={styles.roomSpeakerAvatarsImage}
+                                                                style={{
+                                                                        border: `2px solid ${colors[rIndex%4][index]}`,
+                                                                }}
                                                          />
                                                 ))
                                         }

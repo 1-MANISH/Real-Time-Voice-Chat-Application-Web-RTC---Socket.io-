@@ -50,6 +50,21 @@ const rooms = [
                         }
                 ],
                 totalPeople:4
+        },{
+                id:4,
+                topic:'Which framework best for backend ?',
+                speakers:[
+                        {
+                                id:1111,
+                                name:'Gogi',
+                                avatar:'images/emojiavatar.png'
+                        },{
+                                id:2222,
+                                name:'Rohit',
+                                 avatar:'images/emojiavatar.png'
+                        }
+                ],
+                totalPeople:4
         }
 ]
 function Rooms() {
@@ -85,10 +100,11 @@ function Rooms() {
 
                         <div className={styles.roomsList}>
                                {
-                                       rooms.map(room=>(
+                                       rooms.map((room,index)=>(
                                         <RoomCard 
                                                 key={room.id} 
                                                room={room}
+                                               rIndex={index}
                                         />
                                        ))
                                }
