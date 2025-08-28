@@ -1,6 +1,7 @@
-import React, { lazy } from 'react'
+import React, { lazy, useCallback, useState } from 'react'
 import styles from "./Rooms.module.css"
 
+const AddRoomModal  =lazy(()=>import( '../../components/modals/AddRoomModal/AddRoomModal'))
 const RoomCard  = lazy(()=>import( '../../components/shared/RoomCard/RoomCard'))
 
 const rooms = [
@@ -68,7 +69,17 @@ const rooms = [
         }
 ]
 function Rooms() {
+
+        const [showModal,setShowModal] = useState(false)
+
+        const toggleModal = useCallback(()=>{
+                setShowModal(prev=>!prev)
+        },[showModal])
+
+
+
         return (
+                <>
                 <div className='container'>
                         <div className={styles.roomsHeader}>
                                 <div className={styles.roomsHeaderWrapperLeft}>
@@ -87,7 +98,7 @@ function Rooms() {
                                         </div>
                                 </div>
                                 <div className={styles.roomsHeaderWrapperRight}>
-                                        <button className={styles.startRoomButton}>
+                                        <button className={styles.startRoomButton} onClick={toggleModal}>
                                                 <img
                                                         src='/images/group.png'
                                                         className={styles.startRoomButtonImage}
@@ -110,7 +121,16 @@ function Rooms() {
                                }
                         </div>
                 </div>
+                {
+                       showModal &&
+                        <AddRoomModal 
+                                toggleModal={toggleModal}
+
+                       />
+                }
+                </>
         )
 }
 
 export default Rooms
+

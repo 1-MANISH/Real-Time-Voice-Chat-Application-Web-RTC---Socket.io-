@@ -8,6 +8,7 @@ function TextInput(props) {
                                 className={`${styles.textInput}`} 
                                 type='text' 
                                 {...props}
+                                style={{width:props?.width}}
                         >
 
                         </input>
