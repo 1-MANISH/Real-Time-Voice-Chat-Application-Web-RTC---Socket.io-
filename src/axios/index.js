@@ -48,6 +48,26 @@ export const logoutUser = () =>{
         }
 }
 
+export const createRoom = (data) => {
+          try {
+                return axiosInstance.post('/api/v1/rooms/create', data)
+        } catch (error) {
+                console.log(error)
+                return error
+        }
+
+}
+
+
+export const getAllRooms = () =>{
+        try {
+                return axiosInstance.get('/api/v1/rooms/all')
+        } catch (error) {
+                console.log(error)
+                return error
+        }
+}
+
 
 // interceptors
 

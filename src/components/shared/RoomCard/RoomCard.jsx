@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import styles from './RoomCard.module.css'
+import { useNavigate } from 'react-router'
 
 
 
@@ -8,6 +9,8 @@ function RoomCard({
         room,
         rIndex
 }) {
+
+        const navigate = useNavigate()
 
         const colors = useMemo(()=>{
                 return [
@@ -19,15 +22,15 @@ function RoomCard({
         },[])
 
         return (
-                <div className={styles.roomCard}>
-                        <h3 className={styles.roomCardHeading}>{room?.topic}</h3>
+                <div className={styles.roomCard} onClick={()=>navigate(`/room/${room?._id}`)}>
+                        <h3 className={styles.roomCardHeading}>{room?.roomTopic}</h3>
 
                         <div className={styles.roomSpeakers}>
                                 <div className={styles.roomSpeakerAvatars}>
                                         {
                                                 room?.speakers?.map((speaker,index) => (
                                                         <img 
-                                                                key={speaker?.avatar+"----"+speaker?.id} 
+                                                                key={speaker?.avatar+"----"+speaker?._id} 
                                                                 src={speaker?.avatar} 
                                                                 alt="speaker avatar"
                                                                 className={styles.roomSpeakerAvatarsImage}
@@ -42,7 +45,7 @@ function RoomCard({
                                          {
                                                 room?.speakers?.map((speaker) => (
                                                         <p 
-                                                                key={speaker?.name+speaker?.id} 
+                                                                key={speaker?.name+speaker?._id} 
                                                                 className={styles.roomSpeakerNamesText}
                                                         >
                                                                <span> {speaker?.name} </span>

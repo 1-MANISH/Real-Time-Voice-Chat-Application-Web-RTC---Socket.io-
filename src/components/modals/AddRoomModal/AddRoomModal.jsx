@@ -1,6 +1,7 @@
-import React, { lazy, useCallback, useEffect, useState } from 'react'
+import React, { lazy, useCallback, useState } from 'react'
 import styles from './AddRoomModal.module.css'
-
+import { createRoom } from '../../../axios'
+import {useNavigate} from "react-router"
 const TextInput  = lazy(()=>import( '../../shared/TextInput/TextInput'))
 const RoomType  = lazy(()=>import( '../../shared/RoomType/RoomType'))
 
@@ -26,6 +27,8 @@ function AddRoomModal({
         toggleModal=()=>{},
 }) {
 
+        const navigate = useNavigate()
+
         const [ roomTopic,setRoomTopic] = useState("")
         const [roomTypeSelected,setRoomTypeSelected] = useState("open")
 
@@ -40,14 +43,28 @@ function AddRoomModal({
                 setRoomTypeSelected(type)
         },[])
 
-        const createRoomHandler = useCallback((e)=>{
+        const createRoomHandler = useCallback(async (e)=>{
                 e.preventDefault()
 
-                let roomTopicMain = roomTopic.trim()
-                if(!roomTopicMain.trim() || !roomTypeSelected) return
+                try {
+                        let roomTopicMain = roomTopic.trim()
+                        if(!roomTopicMain.trim() || !roomTypeSelected) return
 
-                // server call
-                console.log(roomTopicMain,roomTypeSelected)
+                        // server call
+                        const {data} = await createRoom({
+                                roomTopic:roomTopicMain,
+                                roomType:roomTypeSelected
+                        })
+                        if(data?.success){
+                                toggleModal()
+                                setRoomTopic("")
+                                setRoomTypeSelected("open")
+                                navigate(`/room/${data?.room?._id}`)
+                        }
+                        
+                } catch (error) {
+                        console.log(error)
+                }
                 
         },[roomTopic,roomTypeSelected])
 

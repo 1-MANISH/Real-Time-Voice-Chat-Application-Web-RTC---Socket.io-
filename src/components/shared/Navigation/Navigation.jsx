@@ -49,7 +49,7 @@ function Navigation() {
                                                 <h3 className={styles.username}>{user?.name}</h3>
                                         <NavLink to={"/profile"} >
                                                         <img 
-                                                                src={user?.avatar}
+                                                                src={user?.avatar || "/images/emojiavatar.png"}
                                                                 alt="profile image"
                                                                 className={styles.profileImage}
                                                         />
@@ -57,7 +57,7 @@ function Navigation() {
                 
                                                 <button className={styles.logoutButton} onClick={logoutHandler}>
                                                                 <img    
-                                                                        src='images/arrow_forward.png'
+                                                                        src='/images/arrow_forward.png'
                                                                         alt="logout icon"
                                                                         className={styles.logoutIcon}
                                                                 />

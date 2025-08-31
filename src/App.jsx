@@ -1,4 +1,4 @@
-import React, { lazy, useEffect, useState } from 'react'
+import React, { lazy } from 'react'
 import "./App.css"
 import { BrowserRouter, Route, Routes } from "react-router"
 import GuestRoute from './components/routes/GuestRoute.jsx'
@@ -8,11 +8,13 @@ import {useSelector} from 'react-redux'
 import Loader from './components/shared/Loader/Loader.jsx'
 import { useLoadingWithRefresh } from './hooks/useLoadingWithRefresh.js'
 
+
 const Navigation = lazy(() => import('./components/shared/Navigation/Navigation.jsx')) 
 const Home = lazy(() => import('./pages/Home/Home.jsx'))
 const Authenticate = lazy(() => import('./pages/Auth/Authenticate.jsx'))
 const Activate = lazy(() => import('./pages/Activate/Activate.jsx'))
 const Rooms = lazy(() => import('./pages/Rooms/Rooms.jsx'))
+const Room = lazy(() => import( './pages/Room/Room.jsx')) 
 const NotFound = lazy(() => import('./pages/Not Found/NotFound.jsx'))
 
 
@@ -42,6 +44,9 @@ function App() {
 
                                <Route path="/rooms" element={  <ProtectedRoute isAuth={isAuth} user={user} > <Rooms /> </ProtectedRoute>}      >
                                </Route>
+
+                                <Route path="/room/:roomId" element={  <ProtectedRoute isAuth={isAuth} user={user} > <Room /> </ProtectedRoute>}      >
+                                </Route>
        
                         
                                 <Route path="*" element={<NotFound />}/>
