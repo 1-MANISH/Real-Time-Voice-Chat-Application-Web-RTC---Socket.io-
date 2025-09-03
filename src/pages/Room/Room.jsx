@@ -16,7 +16,7 @@ function Room() {
                        <h1>All Connected Clients</h1>
                        {
                                 clients && clients.map((client)=>{
-                                        return (<div key={client?._id+"client"}>
+                                        return (<div key={client?._id+"client"} className={styles.userHead}>
                                                 <audio 
                                                         controls
                                                         autoPlay
@@ -25,7 +25,8 @@ function Room() {
                                                         }}
 
                                                 ></audio>
-                                                <h4>{client?.name}</h4>
+                                                <img src={client?.avatar} alt="user avatar" className={styles.userAvatar} />
+                                              
                                         </div>
                                 )})
                        }
