@@ -5,70 +5,7 @@ import { getAllRooms } from '../../axios'
 const AddRoomModal  =lazy(()=>import( '../../components/modals/AddRoomModal/AddRoomModal'))
 const RoomCard  = lazy(()=>import( '../../components/shared/RoomCard/RoomCard'))
 
-// const rooms = [
-//         {
-//                 _id:1,
-//                 topic:'Which framework best for frontend ?',
-//                 speakers:[
-//                         {
-//                                 _id:1,
-//                                 name:'Rahul',
-//                                 avatar:'images/emojiavatar.png'
-//                         },{
-//                                 _id:2,
-//                                 name:'Vijay',
-//                                 avatar:'images/emojiavatar.png'
-//                         }
-//                 ],
-//                 totalPeople:40
-//         },{
-//                 _id:2,
-//                 topic:'Redux Vs RTK or Combined Redux + RTK ?',
-//                 speakers:[
-//                         {
-//                                 _id:11,
-//                                 name:'Prakasur',
-//                                  avatar:'images/emojiavatar.png'
-//                         },{
-//                                 _id:22,
-//                                 name:'Rancho',
-//                                  avatar:'images/emojiavatar.png'
-//                         }
-//                 ],
-//                 totalPeople:4
-//         }
-//         ,{
-//                 _id:3,
-//                 topic:'Whats new in AI and ML ?',
-//                 speakers:[
-//                         {
-//                                 _id:111,
-//                                 name:'Gogi',
-//                                 avatar:'images/emojiavatar.png'
-//                         },{
-//                                 _id:222,
-//                                 name:'Rohit',
-//                                  avatar:'images/emojiavatar.png'
-//                         }
-//                 ],
-//                 totalPeople:4
-//         },{
-//                 _id:4,
-//                 topic:'Which framework best for backend ?',
-//                 speakers:[
-//                         {
-//                                 _id:1111,
-//                                 name:'Gogi',
-//                                 avatar:'images/emojiavatar.png'
-//                         },{
-//                                 _id:2222,
-//                                 name:'Rohit',
-//                                  avatar:'images/emojiavatar.png'
-//                         }
-//                 ],
-//                 totalPeople:4
-//         }
-// ]
+
 function Rooms() {
 
         const [showModal,setShowModal] = useState(false)
