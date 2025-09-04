@@ -1,9 +1,163 @@
-.userHead{
-        background-color: var(--primary-pink-color);
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
 
+
+.goBackButton{
+        background-color: var(--primary-background-color);
+        outline: none;
+        border: none;
+        cursor: pointer;
+        color: var(--primary-text-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 10px 0px;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        -ms-border-radius: 50px;
+        -o-border-radius: 50px;
+        margin:40px 0;
+}
+.goBackButton:hover{
+        opacity: 0.8;
+}
+.goBackButtonText{
+         font-size: 24px;
+        font-weight: 700;
+        position: relative;
+}
+.goBackButtonText::after{
+        content: '';
+        width: 56%;
+        height: 4px;
+        background-color: var(--primary-button-bg-color);
+        position: absolute;
+        bottom: -14px;
+        left: 0;
+
+}
+
+
+.clientsWrapper{
+        background-color: var(--secondary-background-color);
+        padding:20px 40px;
+        border-radius: 20px 20px 0 0;
+        min-height: calc(100vh - 280px);
+
+}
+
+.header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 0;
+}
+
+.roomTopic{
+        font-weight: 800;
+}
+.actionButtons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+}
+
+.handRaise{
+        cursor: pointer;
+        background: none;
+        outline: none;
+        background: var(--hr-line-color);
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        transition: all 0.3s ease;
+
+}
+.leaveRoom{
+        cursor: pointer;
+        background: none;
+        outline: none;
+        background: var(--hr-line-color);
+        border: none;
+        color: var(--primary-text-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 15px;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        font-family: 'Nunito', sans-serif;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        -ms-border-radius: 50px;
+        -o-border-radius: 50px;
+}
+.handRaise:hover{
+        opacity: 0.8;
+}
+.leaveRoom:hover{
+        opacity: 0.8;
+}
+
+.clientsList{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+}
+
+.client{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+           width: 90px;
+        height: 90px;
+        border-radius: 50%;
+}
+.clientName{
+        font-size: 14px;
+        font-weight: 600;
+}
+.userHead{
+        background-color: var(--secondary-background-color);
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+}
+
+.userAudio{
+        display: none;
+}
+.mic{
+        position: absolute;
+        top: 80%;
+        left: 90%;
+        transform: translate(-50%, -50%);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: var(--hr-line-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+}
+.mic:hover{
+        opacity: 0.8;
 }
 
 .userAvatar{

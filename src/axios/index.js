@@ -67,6 +67,14 @@ export const getAllRooms = () =>{
                 return error
         }
 }
+export const getRoom = (roomId) =>{
+        try {
+                return axiosInstance.get(`/api/v1/room/${roomId}`)
+        } catch (error) {
+                console.log(error)
+                return error
+        }
+}
 
 
 // interceptors
