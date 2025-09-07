@@ -11,12 +11,22 @@ function Room() {
         const {roomId} = useParams()
         const {user} = useSelector((store)=>store.auth)
         const [room,setRoom] = useState(null)
+        const [isMute,setIsMute] = useState(true)
 
-        const {clients,provideRef} = useWebRTC(roomId,user)
+
+
+        const {clients,provideRef,handleMute} = useWebRTC(roomId,user)
 
         const goBackToRoom = useCallback(()=>{
                 navigate("/rooms")
         },[navigate])
+
+        const handleMuteClicked = useCallback((clientId)=>{
+
+                if(clientId!==user._id)
+                                return
+                setIsMute(prev => !prev)
+        },[isMute])
 
         const colors = useMemo(()=>{
                 return [ "#0077FF","#20BD5F","#5453E0", "#FF6B00","#E91E63",]
@@ -39,6 +49,10 @@ function Room() {
                 }
                 fetchRoom()
         },[roomId])
+
+        useEffect(()=>{
+                handleMute(isMute,user._id)
+        },[isMute])
 
 
         return (
@@ -78,8 +92,13 @@ function Room() {
                                                 }}
                                         >
                                                         <div className={styles.userHead}>
-                                                                <label htmlFor="mic" className={styles.mic}>
-                                                                        <img className={styles.micOffImage} src="/images/mic_off.png" alt="mic off" />
+                                                                <label htmlFor="mic" className={styles.mic} onClick={()=>handleMuteClicked(client._id)}>
+                                                                       {
+                                                                        client.muted ?
+                                                                         <img className={styles.micOffImage} src="/images/mic_off.png" alt="mic off" />
+                                                                         :
+                                                                           <img className={styles.micOffImage} src="/images/mic.png" alt="mic off" />
+                                                                       }
                                                                 </label>
                                                                 <audio 
                                                                         id='mic'
