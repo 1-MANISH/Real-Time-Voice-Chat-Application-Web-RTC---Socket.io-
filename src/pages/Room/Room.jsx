@@ -14,7 +14,6 @@ function Room() {
         const [isMute,setIsMute] = useState(true)
 
 
-
         const {clients,provideRef,handleMute} = useWebRTC(roomId,user)
 
         const goBackToRoom = useCallback(()=>{
