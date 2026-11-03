@@ -31,6 +31,7 @@ function AddRoomModal({
 
         const [ roomTopic,setRoomTopic] = useState("")
         const [roomTypeSelected,setRoomTypeSelected] = useState("open")
+        const [passcode, setPasscode] = useState(() => Math.floor(1000 + Math.random() * 9000).toString())
 
 
         const outsideClicked = (e) => {
@@ -50,11 +51,14 @@ function AddRoomModal({
                         let roomTopicMain = roomTopic.trim()
                         if(!roomTopicMain.trim() || !roomTypeSelected) return
 
-                        // server call
-                        const {data} = await createRoom({
+                        const payload = {
                                 roomTopic:roomTopicMain,
-                                roomType:roomTypeSelected
-                        })
+                                roomType:roomTypeSelected,
+                                ...(roomTypeSelected === 'closed' ? { passcode: passcode.trim() } : {})
+                        }
+
+                        // server call
+                        const {data} = await createRoom(payload)
                         if(data?.success){
                                 toggleModal()
                                 setRoomTopic("")
@@ -66,8 +70,13 @@ function AddRoomModal({
                         console.log(error)
                 }
                 
-        },[roomTopic,roomTypeSelected])
+        },[roomTopic,roomTypeSelected,passcode,navigate,toggleModal])
 
+        const footerTextMap = {
+                open: "Start a room, open to everyone",
+                social: "Start a room for your community and friends",
+                closed: `Private room with passcode (${passcode})`
+        }
 
         return (
                 <div className={styles.modalMask} onClick={outsideClicked}>
@@ -95,10 +104,24 @@ function AddRoomModal({
                                                         ))
                                                 }
                                         </div>
+
+                                        {roomTypeSelected === 'closed' && (
+                                                <div className={styles.passcodeWrapper}>
+                                                        <span className={styles.passcodeLabel}>Set 4-Digit Passcode</span>
+                                                        <input 
+                                                                type="text"
+                                                                maxLength={6}
+                                                                value={passcode}
+                                                                onChange={(e) => setPasscode(e.target.value)}
+                                                                className={styles.passcodeInput}
+                                                                placeholder="Passcode"
+                                                        />
+                                                </div>
+                                        )}
                                 </div>
                                 <div className={styles.modalFooter}>
                                        <hr className={styles.divider} />         
-                                       <p className={styles.modalFooterText}>Start a room, open to everyone</p>
+                                       <p className={styles.modalFooterText}>{footerTextMap[roomTypeSelected]}</p>
 
                                          <button className={styles.letsGoBtn} onClick={createRoomHandler} >
                                                 <img

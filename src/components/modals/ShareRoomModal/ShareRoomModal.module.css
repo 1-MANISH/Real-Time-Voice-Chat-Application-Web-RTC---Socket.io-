@@ -1,0 +1,137 @@
+.modalMask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        backdrop-filter: blur(4px);
+}
+
+.modalBody {
+        background-color: var(--secondary-background-color);
+        width: 460px;
+        max-width: 90vw;
+        border-radius: 20px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.closeBtn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+}
+
+.closeIcon {
+        width: 16px;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+}
+
+.closeIcon:hover {
+        opacity: 1;
+}
+
+.title {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--primary-text-color);
+        text-align: center;
+}
+
+.subtitle {
+        font-size: 14px;
+        color: var(--secondary-text-color);
+        text-align: center;
+        margin-top: -10px;
+}
+
+.passkeyCard {
+        width: 100%;
+        background: rgba(233, 30, 99, 0.1);
+        border: 1px dashed var(--primary-pink-color);
+        border-radius: 14px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+}
+
+.passkeyLabel {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--primary-pink-color);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+}
+
+.passkeyValue {
+        font-size: 32px;
+        font-weight: 900;
+        letter-spacing: 6px;
+        color: #ffffff;
+}
+
+.passkeyNotice {
+        font-size: 12px;
+        color: var(--secondary-text-color);
+        text-align: center;
+}
+
+.linkBox {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background: var(--input-background-color);
+        border: 1px solid var(--hr-line-color);
+        border-radius: 10px;
+        padding: 8px 12px;
+        gap: 10px;
+}
+
+.linkInput {
+        background: transparent;
+        border: none;
+        color: var(--secondary-text-color);
+        font-size: 13px;
+        flex: 1;
+        outline: none;
+}
+
+.copySmallBtn {
+        background: var(--primary-button-bg-color);
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 6px 12px;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: opacity 0.2s;
+        white-space: nowrap;
+}
+
+.copySmallBtn:hover {
+        opacity: 0.85;
+}
+
+.buttonRow {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+}

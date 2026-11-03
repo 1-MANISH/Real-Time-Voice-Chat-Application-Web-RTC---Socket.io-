@@ -15,6 +15,7 @@ const Authenticate = lazy(() => import('./pages/Auth/Authenticate.jsx'))
 const Activate = lazy(() => import('./pages/Activate/Activate.jsx'))
 const Rooms = lazy(() => import('./pages/Rooms/Rooms.jsx'))
 const Room = lazy(() => import( './pages/Room/Room.jsx')) 
+const Profile = lazy(() => import('./pages/Profile/Profile.jsx'))
 const NotFound = lazy(() => import('./pages/Not Found/NotFound.jsx'))
 
 
@@ -44,6 +45,9 @@ function App() {
 
                                <Route path="/rooms" element={  <ProtectedRoute isAuth={isAuth} user={user} > <Rooms /> </ProtectedRoute>}      >
                                </Route>
+
+                                <Route path="/profile" element={  <ProtectedRoute isAuth={isAuth} user={user} > <Profile /> </ProtectedRoute>}      >
+                                </Route>
 
                                 <Route path="/room/:roomId" element={  <ProtectedRoute isAuth={isAuth} user={user} > <Room /> </ProtectedRoute>}      >
                                 </Route>

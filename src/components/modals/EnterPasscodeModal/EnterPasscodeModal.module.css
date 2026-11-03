@@ -1,0 +1,96 @@
+.modalMask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        backdrop-filter: blur(4px);
+}
+
+.modalBody {
+        background-color: var(--secondary-background-color);
+        width: 440px;
+        max-width: 90vw;
+        border-radius: 20px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.lockIcon {
+        width: 48px;
+        height: 48px;
+}
+
+.title {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--primary-text-color);
+        text-align: center;
+}
+
+.subtitle {
+        font-size: 14px;
+        color: var(--secondary-text-color);
+        text-align: center;
+        margin-top: -10px;
+}
+
+.input {
+        width: 180px;
+        text-align: center;
+        letter-spacing: 8px;
+        font-size: 22px;
+        font-weight: 700;
+        padding: 10px 14px;
+        background: var(--input-background-color);
+        border: 1px solid var(--hr-line-color);
+        color: var(--primary-text-color);
+        border-radius: 10px;
+        outline: none;
+}
+
+.input:focus {
+        border-color: var(--primary-button-bg-color);
+}
+
+.error {
+        color: var(--danger-color);
+        font-size: 13px;
+        margin-top: -8px;
+}
+
+.buttonRow {
+        display: flex;
+        gap: 12px;
+        width: 100%;
+        justify-content: center;
+}
+
+.closeBtn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+}
+
+.closeIcon {
+        width: 16px;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+}
+
+.closeIcon:hover {
+        opacity: 1;
+}
