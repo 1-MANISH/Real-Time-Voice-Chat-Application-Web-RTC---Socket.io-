@@ -83,3 +83,45 @@
         flex-wrap: wrap;
         gap: 20px;
 }
+
+.filterTabs {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+}
+
+.tabBtn {
+        background: var(--input-background-color);
+        border: 1px solid var(--hr-line-color);
+        color: var(--secondary-text-color);
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s ease;
+}
+
+.tabBtn:hover {
+        color: var(--primary-text-color);
+        border-color: rgba(255, 255, 255, 0.2);
+}
+
+.activeTab {
+        background: var(--primary-button-bg-color);
+        color: #ffffff;
+        border-color: var(--primary-button-bg-color);
+}
+
+.emptyState {
+        width: 100%;
+        text-align: center;
+        padding: 60px 0;
+        color: var(--secondary-text-color);
+        font-size: 18px;
+}

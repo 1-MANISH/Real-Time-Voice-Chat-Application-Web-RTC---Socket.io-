@@ -7,7 +7,8 @@ import { useNavigate } from 'react-router'
 
 function RoomCard({
         room,
-        rIndex
+        rIndex,
+        onJoinRoom
 }) {
 
         const navigate = useNavigate()
@@ -21,9 +22,31 @@ function RoomCard({
                 ]
         },[])
 
+        const handleClick = () => {
+                if (onJoinRoom) {
+                        onJoinRoom(room)
+                } else {
+                        navigate(`/room/${room?._id}`)
+                }
+        }
+
+        const roomType = room?.roomType || 'open'
+        const badgeConfig = {
+                open: { label: 'Open', icon: '/images/globe-type.png', className: styles.openBadge },
+                social: { label: 'Social', icon: '/images/user-type.png', className: styles.socialBadge },
+                closed: { label: 'Closed', icon: '/images/lock-type.png', className: styles.closedBadge },
+        }
+        const badge = badgeConfig[roomType] || badgeConfig.open
+
         return (
-                <div className={styles.roomCard} onClick={()=>navigate(`/room/${room?._id}`)}>
-                        <h3 className={styles.roomCardHeading}>{room?.roomTopic}</h3>
+                <div className={styles.roomCard} onClick={handleClick}>
+                        <div className={styles.cardHeaderRow}>
+                                <h3 className={styles.roomCardHeading}>{room?.roomTopic}</h3>
+                                <span className={`${styles.typeBadge} ${badge.className}`}>
+                                        <img src={badge.icon} alt={badge.label} className={styles.typeIcon} />
+                                        <span>{badge.label}</span>
+                                </span>
+                        </div>
 
                         <div className={styles.roomSpeakers}>
                                 <div className={styles.roomSpeakerAvatars}>

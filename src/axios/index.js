@@ -59,9 +59,9 @@ export const createRoom = (data) => {
 }
 
 
-export const getAllRooms = () =>{
+export const getAllRooms = (params = {}) =>{
         try {
-                return axiosInstance.get('/api/v1/rooms/all')
+                return axiosInstance.get('/api/v1/rooms/all', { params })
         } catch (error) {
                 console.log(error)
                 return error
@@ -70,6 +70,33 @@ export const getAllRooms = () =>{
 export const getRoom = (roomId) =>{
         try {
                 return axiosInstance.get(`/api/v1/room/${roomId}`)
+        } catch (error) {
+                console.log(error)
+                return error
+        }
+}
+
+export const getUserProfile = () => {
+        try {
+                return axiosInstance.get('/api/v1/user/profile')
+        } catch (error) {
+                console.log(error)
+                return error
+        }
+}
+
+export const updateUserProfile = (data) => {
+        try {
+                return axiosInstance.put('/api/v1/user/profile', data)
+        } catch (error) {
+                console.log(error)
+                return error
+        }
+}
+
+export const verifyRoomPasscode = (roomId, data) => {
+        try {
+                return axiosInstance.post(`/api/v1/room/${roomId}/verify-passcode`, data)
         } catch (error) {
                 console.log(error)
                 return error

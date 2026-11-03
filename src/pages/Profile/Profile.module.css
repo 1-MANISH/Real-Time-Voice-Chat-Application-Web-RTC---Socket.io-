@@ -1,0 +1,205 @@
+.profileWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 40px;
+        margin-bottom: 60px;
+}
+
+.backButton {
+        align-self: flex-start;
+        background: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: var(--primary-text-color);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 25px;
+        transition: opacity 0.2s;
+}
+
+.backButton:hover {
+        opacity: 0.8;
+}
+
+.backArrow {
+        width: 18px;
+}
+
+.profileCard {
+        background-color: var(--secondary-background-color);
+        width: 480px;
+        max-width: 90vw;
+        border-radius: 20px;
+        padding: 35px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.cardHeader {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+}
+
+.avatarContainer {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        cursor: pointer;
+}
+
+.avatarImage {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--primary-button-bg-color);
+        transition: filter 0.3s ease;
+}
+
+.avatarOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.55);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+}
+
+.avatarContainer:hover .avatarOverlay {
+        opacity: 1;
+}
+
+.fileInput {
+        display: none;
+}
+
+.nameHeading {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--primary-text-color);
+}
+
+.badge {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--primary-green-color);
+        background: rgba(32, 189, 95, 0.12);
+        padding: 4px 12px;
+        border-radius: 20px;
+        border: 1px solid rgba(32, 189, 95, 0.3);
+}
+
+.infoGrid {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        border-top: 1px solid var(--hr-line-color);
+        border-bottom: 1px solid var(--hr-line-color);
+        padding: 20px 0;
+}
+
+.infoItem {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+}
+
+.infoLabel {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--secondary-text-color);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+}
+
+.infoValue {
+        font-size: 16px;
+        color: var(--primary-text-color);
+        font-weight: 500;
+}
+
+.nameInput {
+        background-color: var(--input-background-color);
+        border: 1px solid var(--hr-line-color);
+        color: var(--primary-text-color);
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-family: inherit;
+        outline: none;
+        transition: border-color 0.2s ease;
+}
+
+.nameInput:focus {
+        border-color: var(--primary-button-bg-color);
+}
+
+.statsRow {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 12px;
+        padding: 14px;
+}
+
+.statItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+}
+
+.statValue {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--primary-button-bg-color);
+}
+
+.statLabel {
+        font-size: 12px;
+        color: var(--secondary-text-color);
+}
+
+.feedbackMsg {
+        font-size: 14px;
+        text-align: center;
+        margin-top: -6px;
+}
+
+.success {
+        color: var(--primary-green-color);
+}
+
+.error {
+        color: var(--danger-color);
+}
+
+.actionRow {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+}

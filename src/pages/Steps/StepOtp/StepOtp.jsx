@@ -14,34 +14,41 @@ function StepOtp({
         const dispatch = useDispatch()
 
         const [otp,setOtp]  = useState("")
+        const [error, setError] = useState("")
 
         const {otp:otpData} = useSelector((store)=>store.auth)
 
         const submitHandler = useCallback(async ()=>{
-
+                setError("")
                 try {
-                        // server request
-                        if(!otp || !otpData.phone)
+                        if(!otp || (!otpData.phone && !otpData.email) || !otpData.hash)
                                 return
 
-                        const {data}  = await verifyOtp({
+                        const payload = {
                                 otp,
-                                phone:otpData.phone,
-                                hash:otpData.hash
-                        })
-                        dispatch(setAuth(data))
-                        
-                        if(onClickNext && data?.success )
-                                onClickNext()
-                } catch (error) {
-                        console.log(error)
+                                hash: otpData.hash,
+                                ...(otpData.phone ? { phone: otpData.phone } : {}),
+                                ...(otpData.email ? { email: otpData.email } : {})
+                        }
+
+                        const {data}  = await verifyOtp(payload)
+                        if (data?.success) {
+                                dispatch(setAuth(data))
+                                if(onClickNext)
+                                        onClickNext()
+                        } else {
+                                setError(data?.message || "Invalid OTP")
+                        }
+                } catch (err) {
+                        console.log(err)
+                        setError(err?.response?.data?.message || "Verification failed")
                 }
-        },[otp])
+        },[otp, otpData, dispatch, onClickNext])
 
         return (
                 <div className={`${styles.stepOtpContainer} container`}>
                       <Card 
-                                headingText="Enter the code we just texted you"
+                                headingText="Enter the code we just sent you"
                                 imageSrc="/images/lock.png"
                         >
 
@@ -54,6 +61,8 @@ function StepOtp({
                                                 placeholder="Enter OTP"
                                         />
                                </div>
+
+                               {error && <p style={{color: 'var(--danger-color)', fontSize: '14px', marginTop: '10px'}}>{error}</p>}
 
                                  <div className={`${styles.infoTextWrapper}`}>
                                          <span>
